@@ -1,4 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:ecom/presentation/screens/product_details_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

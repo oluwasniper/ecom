@@ -11,41 +11,31 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8),
-        child: ListView(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: ListView(
+            children: [
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 10,
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Hello, Welcome'),
+                      SizedBox(),
+                      CircleAvatar(
+                        radius: 20,
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    child: Stack(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Hello, Welcome'),
-                            SizedBox(),
-                            CircleAvatar(
-                              radius: 20,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  SizedBox(height: 8),
                   Text(
                     'Albert Stevano',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -78,9 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 20,
-                  ),
                   SizedBox(height: 20),
                   SizedBox(
                     height: 50,
@@ -90,107 +77,132 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: List.generate(10, (index) {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 100,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                ),
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.person),
-                                    Text('All Items'),
-                                  ],
-                                ),
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Container(
+                              width: 100,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                            ],
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.person),
+                                  SizedBox(width: 8),
+                                  Text('All Items'),
+                                ],
+                              ),
+                            ),
                           );
                         }),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            // Handle tap
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 250,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            // Handle tap
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 250,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Item 1'),
+                        SizedBox(height: 4),
+                        Text('Item Type'),
+                        SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Text('Item Price'),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(10),
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 250,
                           ),
-                          height: 250,
                         ),
                       ),
                       SizedBox(width: 10),
                       Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(10),
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 250,
                           ),
-                          height: 250,
                         ),
                       ),
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Item 1'),
-                      Text('Item Type'),
-                      Row(
-                        children: [
-                          Text('Item Price'),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 250,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Item 1'),
+                        SizedBox(height: 4),
+                        Text('Item Type'),
+                        SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Text('Item Price'),
+                          ],
                         ),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          height: 250,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Item 1'),
-                      Text('Item Type'),
-                      Row(
-                        children: [
-                          Text('Item Price'),
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
